@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const mongoose = require('mongoose');
 const passwrd= "gamebombaylive FxNIFDlizChlEh0Q";
 const mongo_url = process.env.MONGO_URL;

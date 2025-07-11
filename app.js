@@ -9,8 +9,9 @@ const app  = express();
 app.set('view engine', 'ejs');
 
 app.use(express.json());
-app.use('', homeRoute);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('', homeRoute);
+
 
 // app.get('/', (req, res)=> {
 //     res.send('hello world');
