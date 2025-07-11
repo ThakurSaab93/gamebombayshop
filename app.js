@@ -1,5 +1,7 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
-const port = 7000;
+const port = process.env.port;
 const db_connec = require('./config/db_connec');
 const homeRoute = require('./src/routes/homeRoute');
 const path= require('path');
@@ -17,6 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     res.render('home');
 // })
 app.listen(port, ()=> {
-    console.log('server is running ');
+    console.log(`server is running ${port}`);
     
 });
