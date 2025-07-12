@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBombay</title>
+    <link rel="stylesheet" href="/stylesheets/gamehome.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logoD">
+            <h2 class="logo">GAME BOMBAY</h2>
+        </div>
+    </div>   
+    <table>
+        <thead>
+            <tr>
+                <td>DATE</td>
+                <td>FARIDABAAD</td>
+                <td>GHAZIABAD</td>
+                <td>GALI</td>
+                <td>DESAWAR</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% const resData= data %>
+            <% const reverseArray= data.reverse() %>
+            <% reverseArray.forEach((data)=> { %>
+            <tr>
+                <td><%= data.date %></td>
+                <td><%= data.faridabad %></td>
+                <td><%= data.ghaziabad %></td>
+                <td><%= data.gali %></td>
+                <td><%= data.desawar %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table> 
+</body>
+</html>
