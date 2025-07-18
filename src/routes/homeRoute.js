@@ -8,7 +8,10 @@ router.get('/', async (req, res)=> {
     const data = await bombayModel.find();
     res.render('home', {data});
 });
-router.post('/add',  async function(req, res) {
+router.get('/create', (req, res)=> {
+    res.render('add')
+});
+router.post('/create',  async function(req, res) {
   const detail =  await bombayModel.create({
     date: req.body.date,
     bombay_3pm: req.body.bombay_3pm,

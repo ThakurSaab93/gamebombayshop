@@ -7,6 +7,10 @@ router.get('/', async (req, res) => {
     res.render('gameHome', {data});
 });
 
+router.get('/create', (req, res)=> {
+    res.render('gameAdd')
+});
+
 router.post('/create', async (req, res)=> {
     const {date, faridabad, ghaziabad, gali, desawar}= req.body;
     const gameData = await gameModel.create({

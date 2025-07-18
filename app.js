@@ -10,17 +10,12 @@ const app  = express();
 app.set('view engine', 'ejs');
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('', homeRoute);
 app.use('/game', gameRoute);
 
 
-// app.get('/', (req, res)=> {
-//     res.send('hello world');
-// })
-// app.get('/', (req, res)=> {
-//     res.render('home');
-// })
 app.listen(port, ()=> {
     console.log(`server is running ${port}`);
     
