@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameBobay</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      table {
+        width: 100%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>BOMBAY read page!</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Game 3pm</td>
+          <td>Game 6pm</td>
+          <td>Game 9pm</td>
+          <td>Game 12am</td>
+          <td>Game 6am</td>
+          <td>Controllers</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% let getdata = data %>
+        <% let recData = getdata.reverse() %> 
+        <% recData.forEach((data) => { %>
+        <tr>
+          <td><%= data.date %></td>
+          <td><%= data.bombay_3pm %></td>
+          <td><%= data.bombay_6pm %></td>
+          <td><%= data.bombay_9pm %></td>
+          <td><%= data.bombay_12am %></td>
+          <td><%= data.bombay_6am %></td>
+          <td class="btn">
+            <span><a href="/edit/<%= data._id %>">Edit</a></span>
+            <span><a href="">Delete</a></span>
+          </td>
+        </tr>
+
+      </tbody>
+    <% }) %>
+    </table>
+  </body>
+</html>

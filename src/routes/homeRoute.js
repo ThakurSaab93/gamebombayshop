@@ -1,14 +1,14 @@
 const express = require('express');
 const bombayModel = require('../models/bombayModel');
+const {isLoggedIn} = require('../middlewares/authMidd');
+
 const router = express.Router();
-// router.get('/', (req, res)=> {
-//     res.render('home');
-// })
+
 router.get('/', async (req, res)=> {
     const data = await bombayModel.find();
     res.render('home', {data});
 });
-router.get('/create', (req, res)=> {
+router.get('/create', isLoggedIn, (req, res)=> {
     res.render('add')
 });
 router.post('/create',  async function(req, res) {
@@ -22,6 +22,21 @@ router.post('/create',  async function(req, res) {
   });
   await detail.save();
   res.send(detail);
+});
+router.get('/read', async (req, res)=> {
+  const data = await bombayModel.find();
+  // console.log(data);
+  res.render('readPage', {data});
+})
+router.get('/edit/:id', async (req, res)=> {
+  const id = req.params.id;
+  const data = await bombayModel.findOneAndUpdate({_id: id}, req.body,{new: true});
+  res.render('editPage1', {data});
+})
+router.post('/edit/:id', async (req, res)=> {
+ const id = req.params.id;
+ const data = await bombayModel.findByIdAndUpdate({_id: id}, req.body)
+ res.status(200).redirect('/read');
 });
 
 module.exports= router;
