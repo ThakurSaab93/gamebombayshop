@@ -17,6 +17,8 @@ router.post('/register', (req, res)=> {
                 email,
                 password: hash
             });
+            const token = jwt.sign({email}, 'secret');
+            res.cookie('token', token);
             res.send(admin);
         })
     } catch (err) {
@@ -34,7 +36,7 @@ router.post('/login', async (req, res)=> {
         if(!admin) return res.send('Wrong email address');
         bcrypt.compare(password, admin.password, (err, result)=> {
             if(result) {
-                const token = jwt.sign({id: admin._id, email}, process.env.jwt_secret_key);
+                const token = jwt.sign({id: admin._id, email}, 'secret');
                 res.cookie('token', token);
                 res.redirect('/create');
             } else{
