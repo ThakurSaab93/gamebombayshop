@@ -7,9 +7,6 @@ const adminModel = require('../models/adminModel');
 router.get('/register', (req, res)=>{
     res.render('register');
 });
-router.get('/', (req, res)=>{
-    res.send('admin route');
-});
 
 router.post('/register', (req, res)=> {
     try {
