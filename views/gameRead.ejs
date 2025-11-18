@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameBobay</title>
+  </head>
+  <body>
+    <h3>Game bombay read page!</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>faridabad</td>
+          <td>ghaziabad</td>
+          <td>gali</td>
+          <td>desawar</td>
+          <td>Controllers</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% let getdata = data %>
+        <% let recData = getdata.reverse() %> 
+        <% recData.forEach((data) => { %>
+        <tr>
+          <td><%= data.date %></td>
+          <td><%= data.faridabad %></td>
+          <td><%= data.ghaziabad %></td>
+          <td><%= data.gali %></td>
+          <td><%= data.desawar %></td>
+          <td class="btn">
+            <span><a href="/game/edit/<%= data._id %>">Edit</a></span>
+            <span><a href="/game/delete/<%= data._id %>">Delete</a></span>
+          </td>
+        </tr>
+      </tbody>
+      <% }) %>
+    </table>
+  </body>
+</html>

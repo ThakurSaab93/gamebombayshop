@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBombay</title>
+</head>
+<body>
+    <h2>Edit here</h2>
+        <form action="/game/edit/<%= data._id %>" method="post" >
+            <input type="text"  name="date" value="<%= data.date %>"><br>
+            <input type="text" name="faridabad"  value="<%= data.faridabad %>"><br>
+            <input type="text" name="ghaziabad"  value="<%= data.ghaziabad %>"><br>
+            <input type="text" name="gali"  value="<%= data.gali %>"><br>
+            <input type="text" name="desawar" value="<%= data.desawar %>"><br>
+            <button type="submit">Update</button>
+    </form>
+</body>
+</html>

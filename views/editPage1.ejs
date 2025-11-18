@@ -8,12 +8,12 @@
 <body>
     <h3>Edit here!</h3>
     <form action="/edit/<%= data._id %>" method="post" >
-        <input type="date" value="<%= data.date %>"><br>
-        <input type="text" value="<%= data.bombay_3pm %>"><br>
-        <input type="text" value="<%= data.bombay_6pm %>"><br>
-        <input type="text" value="<%= data.bombay_9pm %>"><br>
-        <input type="text" value="<%= data.bombay_12am %>"><br>
-        <input type="text" value="<%= data.bombay_6am %>"><br>
+        <input type="text"  name="date" value="<%= data.date %>"><br>
+        <input type="text" name="bombay_3pm"  value="<%= data.bombay_3pm %>"><br>
+        <input type="text" name="bombay_6pm"  value="<%= data.bombay_6pm %>"><br>
+        <input type="text" name="bombay_9pm"  value="<%= data.bombay_9pm %>"><br>
+        <input type="text" name="bombay_12am" value="<%= data.bombay_12am %>"><br>
+        <input type="text" name="bombay_6am"  value="<%= data.bombay_6am %>"><br>
         <button type="submit">Update</button>
     </form>
 </body>

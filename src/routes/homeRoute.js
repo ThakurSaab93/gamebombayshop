@@ -30,13 +30,17 @@ router.get('/read', async (req, res)=> {
 })
 router.get('/edit/:id', async (req, res)=> {
   const id = req.params.id;
-  const data = await bombayModel.findOneAndUpdate({_id: id}, req.body, {new: true});
+  const data = await bombayModel.findOneAndUpdate({_id:id}, req.body,{new:true});
   res.render('editPage1', {data});
 })
 router.post('/edit/:id', async (req, res)=> {
  const id = req.params.id;
  const data = await bombayModel.findByIdAndUpdate({_id: id}, req.body)
  res.status(200).redirect('/read');
+});
+router.get('/delete/:id', async (req, res)=>{
+ const findID = await bombayModel.findByIdAndDelete({_id:req.params.id}, req.body);
+ res.redirect('/read'); 
 });
 
 module.exports= router;

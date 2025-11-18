@@ -35,7 +35,7 @@
           <td>Controllers</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody> 
         <% let getdata = data %>
         <% let recData = getdata.reverse() %> 
         <% recData.forEach((data) => { %>
@@ -48,7 +48,7 @@
           <td><%= data.bombay_6am %></td>
           <td class="btn">
             <span><a href="/edit/<%= data._id %>">Edit</a></span>
-            <span><a href="">Delete</a></span>
+            <span><a href="/delete/<%= data._id %>">Delete</a></span>
           </td>
         </tr>
 

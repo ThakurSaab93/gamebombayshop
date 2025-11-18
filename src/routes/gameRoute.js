@@ -22,6 +22,24 @@ router.post('/create', async (req, res)=> {
     })
     await gameData.save();
     res.send(gameData)
-})
+});
+router.get('/read', async (req, res)=> {
+    const data = await gameModel.find();
+    res.render('gameRead', {data});
+});
 
+router.get('/edit/:id', async (req, res)=> {
+  const id = req.params.id;
+  const data = await gameModel.findOneAndUpdate({_id:id}, req.body,{new:true});
+  res.render('gameEdit', {data});
+});
+router.post('/edit/:id', async (req, res)=> {
+ const id = req.params.id;
+ const data = await gameModel.findByIdAndUpdate({_id: id}, req.body)
+ res.status(200).redirect('/game/read');
+});
+router.get('/delete/:id', async (req, res)=>{
+ const findID = await gameModel.findByIdAndDelete({_id:req.params.id}, req.body);
+ res.status(200).redirect('/game/read'); 
+});
 module.exports = router;
