@@ -3,11 +3,10 @@ const bombayModel = require('../models/bombayModel');
 const {isLoggedIn} = require('../middlewares/authMidd');
 
 const router = express.Router();
-
-app.get('/robots.txt', (req, res)=> {
+router.get('/robots.txt', (req, res)=> {
     res.sendFile(path.join(__dirname, "robots.txt"));
 });
-app.get('/sitemap.xml', (req, res)=> {
+router.get('/sitemap.xml', (req, res)=> {
     res.sendFile(path.join(__dirname, "sitemap.xml"));
 });
 
