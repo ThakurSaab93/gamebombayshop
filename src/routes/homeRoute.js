@@ -1,8 +1,10 @@
 const express = require('express');
+const path=  require('path');
 const bombayModel = require('../models/bombayModel');
 const {isLoggedIn} = require('../middlewares/authMidd');
 
 const router = express.Router();
+
 router.get('/robots.txt', (req, res)=> {
     res.sendFile(path.join(__dirname, "robots.txt"));
 });
@@ -48,5 +50,6 @@ router.get('/delete/:id', async (req, res)=>{
  const findID = await bombayModel.findByIdAndDelete({_id:req.params.id}, req.body);
  res.redirect('/read'); 
 });
+
 
 module.exports= router;
